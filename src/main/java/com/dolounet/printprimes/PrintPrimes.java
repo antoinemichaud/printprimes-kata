@@ -2,6 +2,10 @@ package com.dolounet.printprimes;
 
 public class PrintPrimes {
     public static void main(String[] args) {
+        printPrimesUntil1000();
+    }
+
+    static void printPrimesUntil1000() {
         final int NUMBER_OF_PRIMES_TO_PRINT = 1000;
         final int ROWS_NUMBER = 50;
         final int COLUMNS_NUMBER = 4;
