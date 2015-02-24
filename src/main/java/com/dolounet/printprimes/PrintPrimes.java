@@ -2,12 +2,12 @@ package com.dolounet.printprimes;
 
 public class PrintPrimes {
     public static void main(String[] args) {
-        final int M = 1000;
-        final int RR = 50;
-        final int CC = 4;
-        final int WW = 10;
+        final int NUMBER_OF_PRIMES_TO_PRINT = 1000;
+        final int ROWS_NUMBER = 50;
+        final int COLUMNS_NUMBER = 4;
+
         final int ORDMAX = 30;
-        int P[] = new int[M + 1];
+        int P[] = new int[NUMBER_OF_PRIMES_TO_PRINT + 1];
         int PAGENUMBER;
         int PAGEOFFSET;
         int ROWOFFSET;
@@ -27,7 +27,7 @@ public class PrintPrimes {
         ORD = 2;
         SQUARE = 9;
 
-        while (K < M) {
+        while (K < NUMBER_OF_PRIMES_TO_PRINT) {
             do {
                 J = J + 2;
                 if (J == SQUARE) {
@@ -45,24 +45,24 @@ public class PrintPrimes {
                     N = N + 1;
                 }
             } while (!JPRIME);
-            K = K+1;
+            K = K + 1;
             P[K] = J;
         }
         {
             PAGENUMBER = 1;
             PAGEOFFSET = 1;
-            while (PAGEOFFSET <= M) {
-                System.out.println("The First " + M + " Prime Numbers --- Page " + PAGENUMBER);
+            while (PAGEOFFSET <= NUMBER_OF_PRIMES_TO_PRINT) {
+                System.out.println("The First " + NUMBER_OF_PRIMES_TO_PRINT + " Prime Numbers --- Page " + PAGENUMBER);
                 System.out.println("");
-                for (ROWOFFSET = PAGEOFFSET; ROWOFFSET < PAGEOFFSET + RR; ROWOFFSET++) {
-                    for(C=0 ; C<CC;C++)
-                        if (ROWOFFSET + C* RR <= M)
-                            System.out.format("%10d", P[ROWOFFSET + C * RR]);
+                for (ROWOFFSET = PAGEOFFSET; ROWOFFSET < PAGEOFFSET + ROWS_NUMBER; ROWOFFSET++) {
+                    for (C = 0; C < COLUMNS_NUMBER; C++)
+                        if (ROWOFFSET + C * ROWS_NUMBER <= NUMBER_OF_PRIMES_TO_PRINT)
+                            System.out.format("%10d", P[ROWOFFSET + C * ROWS_NUMBER]);
                     System.out.println("");
-                 }
+                }
                 System.out.println("\f");
                 PAGENUMBER = PAGENUMBER + 1;
-                PAGEOFFSET = PAGEOFFSET + RR * CC;
+                PAGEOFFSET = PAGEOFFSET + ROWS_NUMBER * COLUMNS_NUMBER;
             }
         }
     }
